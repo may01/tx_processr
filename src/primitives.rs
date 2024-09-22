@@ -42,6 +42,7 @@ pub async fn run_reader(file_path: OsString, sender: mpsc::Sender<Message>) -> a
         if let Ok(tx) = Transaction::try_from(record) {
             sender.send(Message::Tx(tx)).await.expect("service stopped");
         }
+        // TODO: handle parsing errors
     }
     sender
         .send(Message::Stop)

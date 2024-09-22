@@ -27,7 +27,7 @@ impl Service {
         while let Some(input) = self.input.recv().await {
             match input {
                 Message::Tx(tx) => {
-                    let _ = self.process_tx(tx).await;
+                    let _ = self.process_tx(tx).await; // TODO: handle error
                 }
                 Message::Stop => {
                     for acc_sender in self.accounts_channels.values() {

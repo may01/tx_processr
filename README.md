@@ -57,10 +57,12 @@ The system consists of the following main components: **Data Provider**, **Servi
 - Consider avoiding the use of `InputTransaction` for CSV parsing as it's currently being used to handle whitespace.
 - A wrapper should be created to manage senders of channels, grouping `Account` tasks with their respective accounts. The wrapper can manage the senders more efficiently.
 - several TODO's are left in the code for improvement
+- Additional logging should be added for error cases
 
 ## Unsafe Code / Security
 
 - No unsafe code is used in this project.
+- When an error occurs, the system skips the current transaction but does **not** cause the system to fail.
 
 ## Efficiency
 
